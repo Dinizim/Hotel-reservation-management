@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+// srand para gerar o codigo!
+    srand((unsigned int)time(NULL));
+ // gerar codigo
+        char Cod[CODE_LENGTH + 1];
+        // gera letras
+        for (int i = 0; i < 4; ++i)
+        {
+            Cod[i] = generateRandomChar();
+        }
+        // Gera  dígitos
+        for (int i = 4; i < CODE_LENGTH; ++i)
+        {
+            Cod[i] = '0' + rand() % 10;
+        }
+        Cod[CODE_LENGTH] = '\0';
+
+        strcpy(reservas[1].Cod, Cod);
+
+        // gerar letras aleatorias A ou A
+char generateRandomChar()
+{
+    const char charset[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const size_t charsetSize = sizeof(charset) - 1;
+    return charset[rand() % charsetSize];
+}
+#define CODE_LENGTH 7

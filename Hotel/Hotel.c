@@ -3,6 +3,11 @@
 
 int main()
 {
+    UINT CPAGE_UTF8 = 65001;
+    UINT CPAGE_DEFAULT = GetConsoleOutputCP();
+
+    SetConsoleOutputCP(CPAGE_UTF8);
+
     int select;
     do
     {
@@ -19,11 +24,11 @@ int main()
     switch (select)
     {
     case 1:
-        
+        Reserva();
         break;
-    
+
     default:
         break;
     }
-
+    SetConsoleOutputCP(CPAGE_DEFAULT);
 }
