@@ -25,6 +25,7 @@ int main()
         switch (select)
         {
         case 1:
+            system("cls");
             Reserva();
 
             break;

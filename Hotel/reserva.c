@@ -185,6 +185,9 @@ void Reserva()
             fprintf(arquivo, "%d %s %s %d\n", quartos[i].NumQuarto, quartos[i].Status, quartos[i].GuestName, quartos[i].andar);
         }
         fclose(arquivo);
+
+        printf("Cadastro Realizad com sucesso!");
+        system("pause");
     }
     else
     {
