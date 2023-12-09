@@ -36,11 +36,10 @@ void obterDataHoraAtual(char *dataHora)
 }
 void encontrarQuarto()
 {
-    FILE *arquivo = fopen("quartos.txt", "r");
+    FILE *arquivo = fopen(".\\output\\Quartos.txt", "r");
     if (arquivo == NULL)
     {
         printf("Erro ao abrir o arquivo\n");
-        return;
     }
 
     for (int i = 0; i < NUM_QUARTOS; ++i)
@@ -72,7 +71,7 @@ void encontrarQuarto()
 
     fclose(arquivo);
 }
-void Reserva()()
+void Reserva()
 {
     struct reserva reservas[5];
     int quartoEncontrado = 0;
@@ -151,13 +150,12 @@ void Reserva()()
 
                 
         char nomeArquivo[100];
-        sprintf(nomeArquivo, "Hospedes\\reserva_%d.txt", reservas[1].quartoSelect);
+        sprintf(nomeArquivo, ".\\output\\Hospedes\\reserva_%d.txt", reservas[1].quartoSelect);
 
         FILE *arquivoReserva = fopen(nomeArquivo, "w");
         if (arquivoReserva == NULL)
         {
             printf("Erro ao abrir o arquivo de reserva\n");
-            return 1;
         }
 
         // Escrever os detalhes da reserva no arquivo
@@ -177,11 +175,10 @@ void Reserva()()
                 break;
             }
         }
-        FILE *arquivo = fopen("quartos.txt", "w");
+        FILE *arquivo = fopen(".\\output\\Quartos.txt", "w");
         if (arquivo == NULL)
         {
             printf("Erro ao abrir o arquivo para escrita\n");
-            return 1;
         }
         for (int i = 0; i < NUM_QUARTOS; ++i)
         {
@@ -194,5 +191,5 @@ void Reserva()()
         printf("Erro ao cadastrar reserva\n");
     }
 
-    return 0;
+    
 }

@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <windows.h>
+#include <locale.h>
 #include "reserva.h"
 
 int main()
@@ -8,7 +10,7 @@ int main()
 
     SetConsoleOutputCP(CPAGE_UTF8);
 
-    int select;
+    int select = 4;
     do
     {
         printf("\nSeja bem vindo!\n");
@@ -19,16 +21,17 @@ int main()
         printf("2 - Gerar Fatura\n");
         printf("0 - Sair\n");
         printf("Escolha a obra desejada: ");
-        scanf("%d", select);
-    } while (select != 0);
-    switch (select)
-    {
-    case 1:
-        Reserva();
-        break;
+        scanf("%d", &select);
+        switch (select)
+        {
+        case 1:
+            Reserva();
 
-    default:
-        break;
-    }
-    SetConsoleOutputCP(CPAGE_DEFAULT);
+            break;
+
+        default:
+            break;
+        }
+        SetConsoleOutputCP(CPAGE_DEFAULT);
+    } while (select != 0);
 }
